@@ -1,0 +1,14 @@
+.venv/
+.buildvenv/
+__pycache__/
+*.pyc
+installer/build/
+installer/dist/
+installer/Output/
+
+# user data — never commit (contains API keys)
+config.json
+config.old.json
+dictation.log
+last.wav
+last_transcript.txt

@@ -1,0 +1,6 @@
+openai>=1.40
+sounddevice
+numpy
+pyperclip
+pystray
+Pillow
