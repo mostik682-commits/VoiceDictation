@@ -1,0 +1,52 @@
+VoiceDictation — dictation into any Windows window
+
+FIRST LAUNCH
+- The app asks which service to use and for its key:
+  • Groq — free (with daily limits). The key starts with "gsk_".
+    Get one: https://console.groq.com/keys
+  • OpenAI — paid. The key starts with "sk-". Get one: https://platform.openai.com/api-keys
+- After that a microphone icon appears next to the clock — the app is running.
+
+DICTATION (hold RIGHT Ctrl)
+- Put the cursor in the field you want, hold Right Ctrl and speak. A black "pill" with a wave appears at the top of the screen.
+- Release Ctrl — the text is pasted with punctuation, capital letters (names, titles, abbreviations)
+  and recognition mistakes fixed. What you said stays as it is — no rewriting.
+
+MENU FOR SELECTED TEXT (Ctrl + Space)
+- Select any text (even text you did not dictate, even Ctrl+A) and press Ctrl + Space. A menu appears:
+  1. Cut the fluff — essence only: no filler words, repetitions or introductions; all facts stay,
+     the tone does not change, the text becomes noticeably shorter.
+  2. Formal, business style: polite, no emoji or casual wording.
+  3. Friendly style: short lively sentences, 1–3 fitting emoji.
+  4. Custom — say by voice what to do.
+- Choose with a mouse click, arrows + Enter, or a digit 1–4. Esc cancels.
+- The result replaces the selected text and a green message appears at the top,
+  for example "Changed to friendly style". Don't like it? Ctrl+Z brings the original back.
+- If the text was already in that style, nothing is pasted and you see "The text is already like that".
+
+CUSTOM COMMAND BY VOICE
+- After choosing item 4 you hear a sound — say your instruction. The app finishes by itself after a pause
+  (or press Right Ctrl to finish at once).
+- Start with the action and give one action at a time. Examples:
+  "Translate to Ukrainian" · "Shorten to two sentences" · "Make it a list" ·
+  "More polite, for my manager" · "Add a signature: Alex" · "Replace 'Monday' with 'Tuesday'" ·
+  "Turn it into a chat between two people" · "Structure it with paragraphs".
+- If the instruction could not be understood you see "Didn't understand the instruction" — say it differently.
+
+THE MICROPHONE ICON NEXT TO THE CLOCK
+- Click the icon (or right button → "Settings…") to open the settings window:
+  • Hotkeys — the dictation key and the key for the selected-text menu.
+  • Services — who recognises your voice and who rewrites text (OpenAI or Groq) and the keys.
+  • Language — the language you dictate in: "Auto" (the service detects it), Ukrainian, Russian,
+    English and 14 more; and the interface language (Automatic / Українська / English).
+    If you always dictate in one language, pick it — fewer mistakes on short phrases.
+  • Dictionary — terms that must be written exactly your way (names, surnames, abbreviations).
+  "Save" — changes apply immediately, no restart needed.
+- Right button: "Language" (quick switch of the dictation language without opening Settings),
+  "Start with Windows" and "Exit".
+- For advanced users: at the bottom of the settings window there is "Open settings file" (config.json).
+  There you can, for example, rewrite the items of the Ctrl + Space menu (command_menu). The app picks up
+  changes in the file by itself within a few seconds.
+
+UNINSTALL
+- Start → VoiceDictation → "Uninstall VoiceDictation" (or Settings → Apps).

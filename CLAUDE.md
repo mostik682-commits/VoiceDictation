@@ -11,7 +11,8 @@ and the text is pasted at the cursor. `Ctrl + Space` on selected text opens a re
 (cut the fluff, business style, friendly style, or a custom voice command). Recognition and rewriting
 are done by online services — Groq (free, with limits) or OpenAI (paid) — using the user's own key.
 The recognition language is *Auto* by default and can be changed in Settings → Language
-or from the tray icon → Language.
+or from the tray icon → Language. The interface is English or Ukrainian (follows Windows; changeable in
+Settings → Language → *Interface language*).
 
 Repository layout: `dictation.py` (the app), `installer/` (PyInstaller + Inno Setup scripts),
 `requirements.txt`. Releases contain a ready installer `VoiceDictation-Setup.exe`

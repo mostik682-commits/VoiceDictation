@@ -47,6 +47,9 @@ def main():
         run(sys.executable, "-m", "venv", VENV)
     run(VPY, "-m", "pip", "install", "-q", "--disable-pip-version-check",
         "-r", os.path.join(ROOT, "requirements.txt"), "pyinstaller")
+    if os.path.abspath(sys.executable).lower() != os.path.abspath(VPY).lower():
+        # іконку малює Pillow, який стоїть лише в .buildvenv — продовжуємо його Python
+        sys.exit(subprocess.call([VPY, os.path.abspath(__file__)]))
     make_icon()
     run(VPY, "-m", "PyInstaller", "--noconfirm", "--clean", "--windowed",
         "--name", "VoiceDictation",

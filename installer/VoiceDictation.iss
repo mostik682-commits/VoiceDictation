@@ -2,7 +2,7 @@
 ; Ставить програму лише для поточного користувача — права адміністратора не потрібні.
 
 #define AppName "VoiceDictation"
-#define AppVersion "1.1.0"
+#define AppVersion "1.2.0"
 #define AppExe "VoiceDictation.exe"
 
 [Setup]
@@ -28,20 +28,36 @@ ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 
 [Languages]
+; майстер вибирає мову за мовою Windows; якщо її немає в списку — англійську
+Name: "en"; MessagesFile: "compiler:Default.isl"
 Name: "uk"; MessagesFile: "compiler:Languages\Ukrainian.isl"
 
+[CustomMessages]
+en.TaskDesktop=Create a desktop shortcut
+en.TaskAutostart=Start with Windows
+en.IconHowTo=How to use
+en.IconUninstall=Uninstall {#AppName}
+en.RunApp=Launch {#AppName}
+uk.TaskDesktop=Створити ярлик на робочому столі
+uk.TaskAutostart=Запускати разом з Windows
+uk.IconHowTo=Як користуватися
+uk.IconUninstall=Видалити {#AppName}
+uk.RunApp=Запустити {#AppName}
+
 [Tasks]
-Name: "desktopicon"; Description: "Створити ярлик на робочому столі"
-Name: "autostart"; Description: "Запускати разом з Windows"
+Name: "desktopicon"; Description: "{cm:TaskDesktop}"
+Name: "autostart"; Description: "{cm:TaskAutostart}"
 
 [Files]
 Source: "dist\VoiceDictation\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "Як користуватися.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Як користуватися.txt"; DestDir: "{app}"; Flags: ignoreversion; Languages: uk
+Source: "HowToUse.txt"; DestDir: "{app}"; Flags: ignoreversion; Languages: en
 
 [Icons]
 Name: "{autoprograms}\{#AppName}\{#AppName}"; Filename: "{app}\{#AppExe}"
-Name: "{autoprograms}\{#AppName}\Як користуватися"; Filename: "{app}\Як користуватися.txt"
-Name: "{autoprograms}\{#AppName}\Видалити {#AppName}"; Filename: "{uninstallexe}"
+Name: "{autoprograms}\{#AppName}\{cm:IconHowTo}"; Filename: "{app}\Як користуватися.txt"; Languages: uk
+Name: "{autoprograms}\{#AppName}\{cm:IconHowTo}"; Filename: "{app}\HowToUse.txt"; Languages: en
+Name: "{autoprograms}\{#AppName}\{cm:IconUninstall}"; Filename: "{uninstallexe}"
 Name: "{autodesktop}\{#AppName}"; Filename: "{app}\{#AppExe}"; Tasks: desktopicon
 
 [Registry]
@@ -49,7 +65,7 @@ Name: "{autodesktop}\{#AppName}"; Filename: "{app}\{#AppExe}"; Tasks: desktopico
 Root: HKCU; Subkey: "Software\Microsoft\Windows\CurrentVersion\Run"; ValueType: string; ValueName: "{#AppName}"; ValueData: """{app}\{#AppExe}"""; Flags: uninsdeletevalue; Tasks: autostart
 
 [Run]
-Filename: "{app}\{#AppExe}"; Description: "Запустити {#AppName}"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\{#AppExe}"; Description: "{cm:RunApp}"; Flags: nowait postinstall skipifsilent
 
 [UninstallRun]
 Filename: "{sys}\taskkill.exe"; Parameters: "/f /im {#AppExe}"; Flags: runhidden; RunOnceId: "StopApp"

@@ -4,6 +4,8 @@
 
 🇺🇦 [Українською](README.uk.md)
 
+![VoiceDictation](docs/hero.png)
+
 ![Windows 10/11](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4?logo=windows&logoColor=white)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 [![Latest release](https://img.shields.io/github/v/release/mostik682-commits/VoiceDictation)](https://github.com/mostik682-commits/VoiceDictation/releases/latest)
@@ -11,13 +13,12 @@
 ## Features
 
 - **Hold-to-talk anywhere.** Hold **Right Ctrl**, speak, release. Punctuation, capital letters, abbreviations and recognition mistakes are fixed automatically, then the text is pasted at the cursor. Your clipboard is restored afterwards.
+- **English and Ukrainian interface.** Follows your Windows language by default; change it in *Settings → Language*.
 - **18 recognition languages.** *Auto* (the service detects the language of each phrase), Ukrainian, Russian, English, Polish, German, French, Spanish, Italian, Portuguese, Czech, Slovak, Romanian, Bulgarian, Turkish, Arabic, Japanese, Chinese. Switch from the tray icon in one click.
 - **Rewrite menu for selected text** (`Ctrl + Space`): *cut the fluff*, *formal business style*, *friendly style with emoji*, or **your own voice command** — "translate to English", "make it shorter", "turn it into a list"… `Ctrl + Z` undoes the change.
 - **Personal dictionary** for names, surnames and abbreviations that must be written exactly your way.
 - **Free to run.** Bring your own key: [Groq](https://console.groq.com/keys) is free (daily limits), [OpenAI](https://platform.openai.com/api-keys) is paid (≈ $0.36 per hour of dictation) and the most accurate.
 - **No admin rights, no account, no telemetry.** Audio goes only to the service you picked, with your own key. Settings and key stay on your PC in `%APPDATA%\VoiceDictation`.
-
-> The app interface is currently in Ukrainian. Dictation itself works in any of the languages above.
 
 ## Install
 
@@ -33,6 +34,16 @@ No Right Ctrl on your keyboard? Click the tray microphone icon → *Settings* �
 
 Using Claude Code, Codex, or another coding agent? Open this repository (or just paste its URL) and say **"Help me install VoiceDictation"**. The agent follows [`AGENTS.md`](AGENTS.md) / [`CLAUDE.md`](CLAUDE.md) and walks you through it step by step without ever asking you to paste your API key into the chat.
 
+## Screenshots
+
+| Rewrite menu (`Ctrl + Space`) | Recording indicator |
+| --- | --- |
+| ![Rewrite menu](docs/rewrite-menu.png) | ![Recording](docs/recording.png) |
+
+| Language | Services |
+| --- | --- |
+| ![Language settings](docs/settings-language.png) | ![Services settings](docs/settings-services.png) |
+
 ## Usage
 
 | Action | How |
@@ -44,7 +55,7 @@ Using Claude Code, Codex, or another coding agent? Open this repository (or just
 | Change language | Tray icon → **Language** |
 | Settings | Click the tray icon → hotkeys, services & keys, language, dictionary |
 
-The full (Ukrainian) manual is in [`installer/Як користуватися.txt`](installer/%D0%AF%D0%BA%20%D0%BA%D0%BE%D1%80%D0%B8%D1%81%D1%82%D1%83%D0%B2%D0%B0%D1%82%D0%B8%D1%81%D1%8F.txt).
+The full manual is in [`installer/HowToUse.txt`](installer/HowToUse.txt) (English) and [`installer/Як користуватися.txt`](installer/%D0%AF%D0%BA%20%D0%BA%D0%BE%D1%80%D0%B8%D1%81%D1%82%D1%83%D0%B2%D0%B0%D1%82%D0%B8%D1%81%D1%8F.txt) (Ukrainian).
 
 ### Settings file
 
@@ -52,7 +63,8 @@ The full (Ukrainian) manual is in [`installer/Як користуватися.tx
 
 | Key | Meaning |
 | --- | --- |
-| `language` | `""` = auto-detect, or a code: `uk`, `ru`, `en`, `pl`, `de`, … |
+| `language` | dictation language: `""` = auto-detect, or a code: `uk`, `ru`, `en`, `pl`, `de`, … |
+| `ui_language` | interface language: `""` = follow Windows, or `uk` / `en` |
 | `provider` / `text_provider` | `openai` or `groq` for recognition / rewriting |
 | `dictionary` | list of terms to spell exactly |
 | `cleanup_prompt` | rules for the automatic clean-up after dictation |
